@@ -8,23 +8,26 @@ import Services from "./Services";
 import Testimonials from "./Testimonials";
 import Contact from "./Contact";
 
-const Home = () => {
+const Home = ({ info, skill }) => {
+  // console.log(info);
   return (
     <div >
-      <section id="hero" className="d-flex flex-column justify-content-center align-items-center">
+      <section id="hero" className="d-flex flex-column justify-content-center align-items-center" style={{
+        backgroundImage: `url(${info?.image})`
+      }}>
         <div className="hero-container" data-aos="fade-in">
-          <h1>Ngô Văn Nam</h1>
+          <h1>{info?.name}</h1>
           <p>I'm web developer</p>
         </div>
       </section>
-      <About />
-      <Fact />
-      <Skill />
+      <About info={info} />
+      {/* <Fact /> */}
+      <Skill skill={skill} />
       <Resume />
-      <Portfolio />
-      <Services />
-      <Testimonials />
-      <Contact />
+      {/* <Portfolio /> */}
+      {/* <Services /> */}
+      {/* <Testimonials /> */}
+      <Contact info={info}/>
       <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
     </div>
   )
