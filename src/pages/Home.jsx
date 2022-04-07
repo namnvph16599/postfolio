@@ -8,7 +8,7 @@ import Services from "./Services";
 import Testimonials from "./Testimonials";
 import Contact from "./Contact";
 
-const Home = ({ info, skill }) => {
+const Home = ({ info, skill, resume }) => {
   // console.log(info);
   return (
     <div >
@@ -23,11 +23,11 @@ const Home = ({ info, skill }) => {
       <About info={info} />
       {/* <Fact /> */}
       <Skill skill={skill} />
-      <Resume />
+      <Resume resume={resume} />
       {/* <Portfolio /> */}
       {/* <Services /> */}
       {/* <Testimonials /> */}
-      <Contact info={info}/>
+      <Contact info={info} />
       <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
     </div>
   )
