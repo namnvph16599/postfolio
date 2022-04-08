@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router';
 import PortfolioLayout from './pages/layouts/PortfolioLayout';
+import AdminLayout from './pages/layouts/AdminLayout';
+
 import Home from './pages/Home';
 import { getInfo } from './api/info';
 import { getSkill } from './api/skill';
 import { getResume } from './api/resume';
+import PrivateRoute from './components/PrivateRoute';
+import Signin from './pages/Signin';
 
 function App() {
   const [info, setInfo] = useState()
@@ -38,6 +42,10 @@ function App() {
       <Routes>
         <Route path="/" element={<PortfolioLayout info={info} />}>
           <Route index element={<Home info={info} skill={infoSkill} resume={infoResume} />} />
+          <Route path="/signin" element={<Signin />} />
+        </Route>
+        <Route path="admin" element={<PrivateRoute><AdminLayout /></PrivateRoute>}>
+          {/* <Route index  /> */}
         </Route>
       </Routes>
     </div>
