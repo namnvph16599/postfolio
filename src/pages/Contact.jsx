@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { postContact } from '../api/contact';
+import { useNavigate } from "react-router-dom"
 const Contact = ({ info }) => {
+  const navigate = useNavigate()
+  const [show, setShow] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const handlerSubmit = (data) => {
-    console.log(data);
+  const handlerSubmit = async (dataContact) => {
+    const { data } = await postContact(dataContact)
+    setShow(!show)
   }
   return (
     <div>  <section id="contact" className="contact">
@@ -68,7 +73,7 @@ const Contact = ({ info }) => {
               <div className="my-3">
                 <div className="loading">Loading</div>
                 <div className="error-message"></div>
-                <div className="sent-message">Your message has been sent. Thank you!</div>
+                <div className="sent-message" style={{ display: show ? 'block' : 'none' }} >Your message has been sent. Thank you!</div>
               </div>
               <div className="text-center"><button type="submit">Send Message</button></div>
             </form>
