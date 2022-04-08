@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Resume = ({resume}) => {
-  console.log(resume);  
+  // console.log(resume);  
   return (
     <div> <section id="resume" className="resume">
       <div className="container">

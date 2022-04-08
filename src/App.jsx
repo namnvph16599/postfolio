@@ -10,11 +10,14 @@ import { getResume } from './api/resume';
 import PrivateRoute from './components/PrivateRoute';
 import Signin from './pages/Signin';
 import Dashboard from './pages/Dashboard';
+import { getAllProjects } from './api/project';
 
 function App() {
   const [info, setInfo] = useState()
   const [infoSkill, setInfoSkill] = useState([]);
   const [infoResume, setInfoResume] = useState([]);
+  const [infoProject, setInfoProject] = useState([]);
+
 
 
   // console.log(info);
@@ -37,12 +40,18 @@ function App() {
       setInfoResume(data);
     }
     getInfoResume();
+    const getInfoProject = async () => {
+      const { data } = await getAllProjects();
+      // console.log("Resume", data);
+      setInfoProject(data);
+    }
+    getInfoProject();
   }, [])
   return (
     <div>
       <Routes>
         <Route path="/" element={<PortfolioLayout info={info} />}>
-          <Route index element={<Home info={info} skill={infoSkill} resume={infoResume} />} />
+          <Route index element={<Home info={info} skill={infoSkill} resume={infoResume} infoProject={infoProject}/>} />
           <Route path="/signin" element={<Signin />} />
         </Route>
         <Route path="/admin" element={<PrivateRoute><AdminLayout info={info}/></PrivateRoute>}>

@@ -8,7 +8,7 @@ import Services from "./Services";
 import Testimonials from "./Testimonials";
 import Contact from "./Contact";
 
-const Home = ({ info, skill, resume }) => {
+const Home = ({ info, skill, resume, infoProject }) => {
   // console.log(info);
   return (
     <div >
@@ -24,7 +24,7 @@ const Home = ({ info, skill, resume }) => {
       {/* <Fact /> */}
       <Skill skill={skill} />
       <Resume resume={resume} />
-      <Portfolio />
+      <Portfolio infoProject={infoProject} />
       {/* <Services /> */}
       {/* <Testimonials /> */}
       <Contact info={info} />

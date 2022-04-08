@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const Skill = ({ skill }) => {
-  console.log(skill);
+  // console.log(skill);
   return (
     <div><section id="skills" className="skills section-bg">
       <div className="container">
