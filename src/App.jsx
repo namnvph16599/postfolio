@@ -9,6 +9,7 @@ import { getSkill } from './api/skill';
 import { getResume } from './api/resume';
 import PrivateRoute from './components/PrivateRoute';
 import Signin from './pages/Signin';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   const [info, setInfo] = useState()
@@ -44,8 +45,8 @@ function App() {
           <Route index element={<Home info={info} skill={infoSkill} resume={infoResume} />} />
           <Route path="/signin" element={<Signin />} />
         </Route>
-        <Route path="admin" element={<PrivateRoute><AdminLayout /></PrivateRoute>}>
-          {/* <Route index  /> */}
+        <Route path="/admin" element={<PrivateRoute><AdminLayout /></PrivateRoute>}>
+          <Route index element={<Dashboard />}/>
         </Route>
       </Routes>
     </div>
