@@ -11,6 +11,11 @@ import PrivateRoute from './components/PrivateRoute';
 import Signin from './pages/Signin';
 import Dashboard from './pages/Dashboard';
 import { getAllProjects } from './api/project';
+import AdminInfo from './pages/admin/Admininfo';
+import AdminResume from './pages/admin/AdminResume';
+import AdminSkill from './pages/admin/AdminSkill';
+import AdminProject from './pages/admin/AdminProject';
+import AdminContact from './pages/admin/AdminContact';
 
 function App() {
   const [info, setInfo] = useState()
@@ -51,11 +56,16 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<PortfolioLayout info={info} />}>
-          <Route index element={<Home info={info} skill={infoSkill} resume={infoResume} infoProject={infoProject}/>} />
+          <Route index element={<Home info={info} skill={infoSkill} resume={infoResume} infoProject={infoProject} />} />
           <Route path="/signin" element={<Signin />} />
         </Route>
-        <Route path="/admin" element={<PrivateRoute><AdminLayout info={info}/></PrivateRoute>}>
-          <Route index element={<Dashboard />}/>
+        <Route path="/admin" element={<PrivateRoute><AdminLayout info={info} /></PrivateRoute>}>
+          <Route index element={<Dashboard />} />
+          <Route path="info" element={<AdminInfo />} />
+          <Route path="resume" element={<AdminResume />} />
+          <Route path="skill" element={<AdminSkill />} />
+          <Route path="project" element={<AdminProject />} />
+          <Route path="contact" element={<AdminContact />} />
         </Route>
       </Routes>
     </div>

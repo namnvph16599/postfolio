@@ -2,7 +2,9 @@ import React from 'react'
 
 const Dashboard = () => {
     return (
-        <div><table class="table table-hover">
+        <div>
+            <img style={{"width" : "100%", "height" : "100%"}} src="https://cdn1.vectorstock.com/i/1000x1000/47/15/thin-line-dashboard-poster-banner-template-vector-21474715.jpg" alt="" />
+            {/* <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Firstname</th>
@@ -27,7 +29,8 @@ const Dashboard = () => {
                     <td>july@example.com</td>
                 </tr>
             </tbody>
-        </table></div>
+        </table> */}
+        </div>
     )
 }
 
