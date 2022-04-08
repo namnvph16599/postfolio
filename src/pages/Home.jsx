@@ -21,7 +21,7 @@ const Home = ({ info, skill, resume }) => {
         </div>
       </section>
       <About info={info} />
-      <Fact />
+      {/* <Fact /> */}
       <Skill skill={skill} />
       <Resume resume={resume} />
       <Portfolio />

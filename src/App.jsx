@@ -45,7 +45,7 @@ function App() {
           <Route index element={<Home info={info} skill={infoSkill} resume={infoResume} />} />
           <Route path="/signin" element={<Signin />} />
         </Route>
-        <Route path="/admin" element={<PrivateRoute><AdminLayout /></PrivateRoute>}>
+        <Route path="/admin" element={<PrivateRoute><AdminLayout info={info}/></PrivateRoute>}>
           <Route index element={<Dashboard />}/>
         </Route>
       </Routes>

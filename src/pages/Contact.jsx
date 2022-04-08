@@ -7,6 +7,7 @@ const Contact = ({ info }) => {
   const [show, setShow] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
   const handlerSubmit = async (dataContact) => {
+    // console.log(dataContact);
     const { data } = await postContact(dataContact)
     setShow(!show)
   }
@@ -40,8 +41,8 @@ const Contact = ({ info }) => {
                 <h4>Call:</h4>
                 <p>{info?.phone}</p>
               </div>
-
-              {/* <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameBorder="0" style="border:0; width: 100%; height: 290px;" allowFullScreen></iframe> */}
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d930.8777157663562!2d105.74027422919347!3d21.052248899124105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454f75470473d%3A0x6527213b5300639e!2zTmd1ecOqbiBYw6EsIE1pbmggS2hhaSwgVOG7qyBMacOqbSwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1649437126296!5m2!1svi!2s" style={{ "border": "0", "width": "100%", "height": "300px" }}
+                allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
           </div>
@@ -59,15 +60,20 @@ const Contact = ({ info }) => {
                   <input type="email" {...register('email', { required: true })} className="form-control" name="email" id="email" required />
                   {errors.email && <p style={{ "color": "Red" }}>Startup must enter this field!</p>}
                 </div>
-              </div>
-              <div className="form-group">
-                <label htmlFor="subject">Subject</label>
-                <input type="text" {...register('subject', { required: true })} className="form-control" name="subject" id="subject" required />
-                {errors.subject && <p style={{ "color": "Red" }}>Startup must enter this field!</p>}
+                <div className="form-group col-md-6">
+                  <label htmlFor="phone">Your phone</label>
+                  <input type="text" {...register('phone', { required: true })} className="form-control" name="phone" id="phone" required />
+                  {errors.phone && <p style={{ "color": "Red" }}>Startup must enter this field!</p>}
+                </div>
+                <div className="form-group col-md-6">
+                  <label htmlFor="subject">Subject</label>
+                  <input type="text" {...register('subject', { required: true })} className="form-control" name="subject" id="subject" required />
+                  {errors.subject && <p style={{ "color": "Red" }}>Startup must enter this field!</p>}
+                </div>
               </div>
               <div className="form-group">
                 <label htmlFor="message">Message</label>
-                <input className="form-control" {...register('message', { required: true })} name="message" rows="10" required />
+                <textarea className="form-control" {...register('message', { required: true })} name="message" rows="10" required />
                 {errors.message && <p style={{ "color": "Red" }}>Startup must enter this field!</p>}
               </div>
               <div className="my-3">

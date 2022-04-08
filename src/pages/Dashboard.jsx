@@ -2,32 +2,29 @@ import React from 'react'
 
 const Dashboard = () => {
     return (
-        <div><table class="table table-hover table-dark">
+        <div><table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
                 </tr>
                 <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
                 </tr>
                 <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
                 </tr>
             </tbody>
         </table></div>
