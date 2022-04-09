@@ -6,17 +6,19 @@ import AdminLayout from './pages/layouts/AdminLayout';
 import Home from './pages/Home';
 import { getInfo, putInfo } from './api/info';
 import { getSkill } from './api/skill';
-import { getResume } from './api/resume';
+import { getResume, postResume, putResume, removeResume } from './api/resume';
 import PrivateRoute from './components/PrivateRoute';
 import Signin from './pages/Signin';
 import Dashboard from './pages/admin/Dashboard';
 import { getAllProjects } from './api/project';
 import AdminInfo from './pages/admin/Info/AdminInfo';
-import AdminResume from './pages/admin/AdminResume';
+import AdminResume from './pages/admin/resume/AdminResume';
 import AdminSkill from './pages/admin/AdminSkill';
 import AdminProject from './pages/admin/AdminProject';
 import AdminContact from './pages/admin/contact/AdminContact';
 import InfoEdit from './pages/admin/Info/InfoEdit';
+import ResumeEdit from './pages/admin/resume/ResumeEdit';
+import ResumeAdd from './pages/admin/resume/ResumeAdd';
 
 function App() {
   const [info, setInfo] = useState()
@@ -54,11 +56,31 @@ function App() {
     getInfoProject();
   }, [])
 
+
+  //handler info
   const handleEditInfoApp = async (dataEditInfo) => {
     const { data } = await putInfo(dataEditInfo)
     // console.log("infoEditapp,", data);
     setInfo(data)
   }
+
+
+
+  //handler resume add
+  const handleRemoveResume = (id) => {
+    removeResume(id);
+    setInfoResume(infoResume.filter(item => item._id != id))
+  }
+  const handlerADDResume = async (dataResume) => {
+    const { data } = await postResume(dataResume);
+    setInfoResume([...infoResume, data])
+  }
+  const handlerEDITResume = async (dataResume) => {
+    const { data } = await putResume(dataResume);
+    setInfoResume(infoResume.map(val => val._id == data._id ? data : val));
+  }
+
+
   return (
     <div>
       <Routes>
@@ -70,7 +92,10 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="info" element={<AdminInfo info={info} />} />
           <Route path="info/:id/edit" element={<InfoEdit handleEditInfo={handleEditInfoApp} />} />
-          <Route path="resume" element={<AdminResume />} />
+          <Route path="resume" element={<AdminResume resume={infoResume} handlerRemove={handleRemoveResume} />} />
+          <Route path="resume/:id/edit" element={<ResumeEdit handlerEditResume={handlerEDITResume} />} />
+          <Route path="resume/add" element={<ResumeAdd handlerAddResume={handlerADDResume} />} />
+
           <Route path="skill" element={<AdminSkill />} />
           <Route path="project" element={<AdminProject />} />
           <Route path="contact" element={<AdminContact />} />
