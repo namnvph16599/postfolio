@@ -1,7 +1,14 @@
+import { getUserLocalStorage } from "../utils/localStorage";
 import instance from "./instance";
+
+const { token, user } = getUserLocalStorage();
 
 export const getInfo = () => {
     const url = "/info";
+    return instance.get(url)
+}
+export const getInfoId = (id) => {
+    const url = `/info/${id}`;
     return instance.get(url)
 }
 
@@ -16,6 +23,10 @@ export const removeInfo = (id) => {
 }
 
 export const putInfo = (data) => {
-    const url = `/info/${data.id}`;
-    return instance.put(url, data)
+    const url = `/info/${data._id}/${user.id}`;
+    return instance.put(url, data, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    })
 }

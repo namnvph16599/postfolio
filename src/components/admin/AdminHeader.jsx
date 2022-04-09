@@ -19,7 +19,7 @@ const Header = ({ info }) => {
 
                 <nav id="navbar" className="nav-menu navbar">
                     <ul>
-                        <li><Link to="info" className="nav-link scrollto active"> <span>Info</span></Link></li>
+                        <li><Link to="info" className="nav-link scrollto"> <span>Info</span></Link></li>
                         <li><Link to="resume" className="nav-link scrollto"> <span>Resume</span></Link></li>
                         <li><Link to="project" className="nav-link scrollto"> <span>Project</span></Link></li>
                         <li><Link to="skill" className="nav-link scrollto"> <span>Skill</span></Link></li>

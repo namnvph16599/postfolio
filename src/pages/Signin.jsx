@@ -19,7 +19,6 @@ const Signin = () => {
         }
         setUserLocalStorage(data, () => {
             navigate("/admin")
-            console.log(1);
         })
     }
     return (
