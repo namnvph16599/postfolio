@@ -15,7 +15,7 @@ import AdminInfo from './pages/admin/Info/AdminInfo';
 import AdminResume from './pages/admin/AdminResume';
 import AdminSkill from './pages/admin/AdminSkill';
 import AdminProject from './pages/admin/AdminProject';
-import AdminContact from './pages/admin/AdminContact';
+import AdminContact from './pages/admin/contact/AdminContact';
 import InfoEdit from './pages/admin/Info/InfoEdit';
 
 function App() {
@@ -56,7 +56,7 @@ function App() {
 
   const handleEditInfoApp = async (dataEditInfo) => {
     const { data } = await putInfo(dataEditInfo)
-    console.log("infoEditapp,", data);
+    // console.log("infoEditapp,", data);
     setInfo(data)
   }
   return (
