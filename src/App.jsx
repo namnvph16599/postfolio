@@ -5,7 +5,7 @@ import AdminLayout from './pages/layouts/AdminLayout';
 
 import Home from './pages/Home';
 import { getInfo, putInfo } from './api/info';
-import { getSkill } from './api/skill';
+import { getSkill, postSkill, putSkill, removeSkill } from './api/skill';
 import { getResume, postResume, putResume, removeResume } from './api/resume';
 import PrivateRoute from './components/PrivateRoute';
 import Signin from './pages/Signin';
@@ -13,12 +13,14 @@ import Dashboard from './pages/admin/Dashboard';
 import { getAllProjects } from './api/project';
 import AdminInfo from './pages/admin/Info/AdminInfo';
 import AdminResume from './pages/admin/resume/AdminResume';
-import AdminSkill from './pages/admin/AdminSkill';
+import AdminSkill from './pages/admin/skill/AdminSkill';
 import AdminProject from './pages/admin/AdminProject';
 import AdminContact from './pages/admin/contact/AdminContact';
 import InfoEdit from './pages/admin/Info/InfoEdit';
 import ResumeEdit from './pages/admin/resume/ResumeEdit';
 import ResumeAdd from './pages/admin/resume/ResumeAdd';
+import SkillAdd from './pages/admin/skill/SkillAdd';
+import SkillEdit from './pages/admin/skill/SkillEdit';
 
 function App() {
   const [info, setInfo] = useState()
@@ -81,6 +83,24 @@ function App() {
   }
 
 
+  //handler skill
+
+  const handlerADDSkill = async (dataSkillAdd) => {
+    // console.log(dataSkillAdd);
+    const { data } = await postSkill(dataSkillAdd);
+    setInfoSkill([...infoSkill, data])
+  }
+  const handlerEDITSkill = async (dataEdit) => {
+    // console.log(dataEdit);
+    const { data } = await putSkill(dataEdit);
+    setInfoSkill(infoSkill.map(item => item._id == data._id ? data : item))
+  }
+
+  const handlerREMOVESkill = async (id) => {
+    const { data } = await removeSkill(id);
+    setInfoSkill(infoSkill.filter(item => item._id != id))
+  }
+
   return (
     <div>
       <Routes>
@@ -90,13 +110,19 @@ function App() {
         </Route>
         <Route path="/admin" element={<PrivateRoute><AdminLayout info={info} /></PrivateRoute>}>
           <Route index element={<Dashboard />} />
+
           <Route path="info" element={<AdminInfo info={info} />} />
           <Route path="info/:id/edit" element={<InfoEdit handleEditInfo={handleEditInfoApp} />} />
+
           <Route path="resume" element={<AdminResume resume={infoResume} handlerRemove={handleRemoveResume} />} />
           <Route path="resume/:id/edit" element={<ResumeEdit handlerEditResume={handlerEDITResume} />} />
           <Route path="resume/add" element={<ResumeAdd handlerAddResume={handlerADDResume} />} />
 
-          <Route path="skill" element={<AdminSkill />} />
+          <Route path="skill" element={<AdminSkill skill={infoSkill} pushIdRemoveSkill={handlerREMOVESkill} />} />
+          <Route path="skill/add" element={<SkillAdd handlerAddSkill={handlerADDSkill} />} />
+          <Route path="skill/:id/edit" element={<SkillEdit handlerEditSkill={handlerEDITSkill} />} />
+
+
           <Route path="project" element={<AdminProject />} />
           <Route path="contact" element={<AdminContact />} />
         </Route>
