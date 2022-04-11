@@ -10,17 +10,19 @@ import { getResume, postResume, putResume, removeResume } from './api/resume';
 import PrivateRoute from './components/PrivateRoute';
 import Signin from './pages/Signin';
 import Dashboard from './pages/admin/Dashboard';
-import { getAllProjects } from './api/project';
+import { getAllProjects, postProject, putProject, removeProject } from './api/project';
 import AdminInfo from './pages/admin/Info/AdminInfo';
 import AdminResume from './pages/admin/resume/AdminResume';
 import AdminSkill from './pages/admin/skill/AdminSkill';
-import AdminProject from './pages/admin/AdminProject';
+import AdminProject from './pages/admin/project/AdminProject';
 import AdminContact from './pages/admin/contact/AdminContact';
 import InfoEdit from './pages/admin/Info/InfoEdit';
 import ResumeEdit from './pages/admin/resume/ResumeEdit';
 import ResumeAdd from './pages/admin/resume/ResumeAdd';
 import SkillAdd from './pages/admin/skill/SkillAdd';
 import SkillEdit from './pages/admin/skill/SkillEdit';
+import ProjectAdd from './pages/admin/project/ProjectAdd';
+import ProjectEdit from './pages/admin/project/ProjectEdit';
 
 function App() {
   const [info, setInfo] = useState()
@@ -101,6 +103,21 @@ function App() {
     setInfoSkill(infoSkill.filter(item => item._id != id))
   }
 
+
+  //handler project
+  const handlerADDProject = async (datapost) => {
+    // console.log(datapost);
+    const { data } = await postProject(datapost);
+    setInfoProject([...infoProject, data])
+  }
+  const handlerEDITProject = async (dataEdit) => {
+    const { data } = await putProject(dataEdit);
+    setInfoProject(infoProject.map(item => item._id = data._id ? data : item))
+  }
+  const handlerRemoveProject = async (id) => {
+    const { data } = await removeProject(id);
+    setInfoProject(infoProject.filter(item => item._id != id));
+  }
   return (
     <div>
       <Routes>
@@ -123,7 +140,12 @@ function App() {
           <Route path="skill/:id/edit" element={<SkillEdit handlerEditSkill={handlerEDITSkill} />} />
 
 
-          <Route path="project" element={<AdminProject />} />
+          <Route path="project" element={<AdminProject project={infoProject} pushIDRemoveProject={handlerRemoveProject} />} />
+          <Route path="project/add" element={<ProjectAdd pushDataProjectAdd={handlerADDProject} />} />
+          <Route path="project/:id/edit" element={<ProjectEdit pushDataProjectEdit={handlerEDITProject} />} />
+
+
+
           <Route path="contact" element={<AdminContact />} />
         </Route>
       </Routes>

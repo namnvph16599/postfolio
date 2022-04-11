@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import { get, useForm } from 'react-hook-form'
-import { useParams } from 'react-router';
+import {  useParams } from 'react-router';
 import { getInfoId } from '../../../api/info';
+import {useNavigate} from "react-router-dom"
 
 const InfoEdit = (props) => {
+    const navigate = useNavigate();
     const { id } = useParams()
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     useEffect(() => {
@@ -16,6 +18,7 @@ const InfoEdit = (props) => {
     },[])
     const handlerSubmit = (dataPost) => {
         props.handleEditInfo(dataPost)
+        navigate("/admin/info")
     }
 
     return (

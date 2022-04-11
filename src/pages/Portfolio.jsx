@@ -16,9 +16,11 @@ const Portfolio = ({ infoProject }) => {
           <div className="col-lg-12" data-aos="fade-up">
             {infoProject?.map((val, ind) => (<div key={ind} className="resume-item">
               <h5>Project Name : {val.name}</h5>
-              <span>Link : </span> <a href={val.link} target="_blank">{val.link}</a><br />
+              <span>Domains : </span> <a href={val.domains} target="_blank">{val.domains}</a><br />
+              <span>Link Github : </span> <a href={val.github} target="_blank">{val.github}</a><br />
+
               {/* <p><em>Rochester Institute of Technology, Rochester, NY</em></p> */}
-              <span>Technology : </span><span>{val.description}</span>
+              <span>Technology : </span><span>{val.technology}</span>
               <hr />
             </div>
             ))}
