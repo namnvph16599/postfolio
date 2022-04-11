@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 const Portfolio = ({ infoProject }) => {
-  console.log(infoProject);
+  // console.log(infoProject);
   return (
     <div><section id="portfolio" className="portfolio section-bg">
       <div className="container">

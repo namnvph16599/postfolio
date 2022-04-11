@@ -27,15 +27,15 @@ const About = ({ info }) => {
                 <ul>
                   <li><i className="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{info?.birthday}</span></li>
                   <li><i className="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{info?.phone}</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
+                  {/* <li><i className="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li> */}
                   {/* <li><i className="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li> */}
+                  <li><i className="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Student</span></li>
                 </ul>
               </div>
               <div className="col-lg-6">
                 <ul>
                   <li><i className="bi bi-chevron-right"></i> <strong>Age:</strong> <span>20</span></li>
                   <li><i className="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{info?.email}</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Student</span></li>
                   {/* <li><i className="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li> */}
                 </ul>
               </div>
