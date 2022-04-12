@@ -3,6 +3,7 @@ import instance from "./instance";
 
 const { token, user } = getUserLocalStorage();
 
+
 export const getInfo = () => {
     const url = "/info";
     return instance.get(url)
