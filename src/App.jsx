@@ -23,6 +23,10 @@ import SkillAdd from './pages/admin/skill/SkillAdd';
 import SkillEdit from './pages/admin/skill/SkillEdit';
 import ProjectAdd from './pages/admin/project/ProjectAdd';
 import ProjectEdit from './pages/admin/project/ProjectEdit';
+import About from './pages/About';
+import Resume from './pages/Resume';
+import Skill from './pages/Skill';
+import Portfolio from './pages/Portfolio';
 
 function App() {
   const [info, setInfo] = useState()
@@ -124,6 +128,11 @@ function App() {
         <Route path="/" element={<PortfolioLayout info={info} />}>
           <Route index element={<Home info={info} skill={infoSkill} resume={infoResume} infoProject={infoProject} />} />
           <Route path="/signin" element={<Signin />} />
+          <Route path="/about" element={<About  info={info}/>} />
+          <Route path="/resume" element={<Resume  resume={infoResume}/>} />
+          <Route path="/skill" element={<Skill skill={infoSkill}/>} />
+          <Route path="/portfolio" element={<Portfolio infoProject={infoProject}/>} />
+
         </Route>
         <Route path="/admin" element={<PrivateRoute><AdminLayout info={info} /></PrivateRoute>}>
           <Route index element={<Dashboard />} />
