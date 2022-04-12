@@ -7,8 +7,9 @@ import Portfolio from "./Portfolio";
 import Services from "./Services";
 import Testimonials from "./Testimonials";
 import Contact from "./Contact";
+import SoftSkill from './SoftSkill';
 
-const Home = ({ info, skill, resume, infoProject }) => {
+const Home = ({ info, skill, resume, infoProject, softSkill }) => {
   // console.log(info);
   return (
     <div >
@@ -17,15 +18,15 @@ const Home = ({ info, skill, resume, infoProject }) => {
       }}>
         <div className="hero-container">
           <h1>{info?.name}</h1>
-          <p>I'm web developer</p>
+          <p>I will be a Frontend developer</p>
         </div>
       </section>
       <About info={info} />
       {/* <Fact /> */}
       <Skill skill={skill} />
       <Resume resume={resume} />
+      <SoftSkill softSkill={softSkill} />
       <Portfolio infoProject={infoProject} />
-      {/* <Services /> */}
       {/* <Testimonials /> */}
       <Contact info={info} />
       <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>

@@ -23,6 +23,8 @@ const Header = ({ info }) => {
                         <li><Link to="resume" className="nav-link scrollto"> <span>Resume</span></Link></li>
                         <li><Link to="project" className="nav-link scrollto"> <span>Project</span></Link></li>
                         <li><Link to="skill" className="nav-link scrollto"> <span>Skill</span></Link></li>
+                        <li><Link to="soft-skill" className="nav-link scrollto"> <span>Soft Skill</span></Link></li>
+
                         <li><Link to="contact" className="nav-link scrollto"> <span>Contact</span></Link></li>
                     </ul>
                 </nav>

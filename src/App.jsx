@@ -30,13 +30,19 @@ import About from './pages/About';
 import Resume from './pages/Resume';
 import Skill from './pages/Skill';
 import Portfolio from './pages/Portfolio';
+import SoftSkillManager from './pages/admin/softskill/SoftSkillManager';
+import SoftSkillAdd from './pages/admin/softskill/SoftSkillAdd';
+import SoftSkillEdit from './pages/admin/softskill/SoftSkillEdit';
+import { getSoftSkill, postSoftSkill, putSoftSkill, removeSoftSkill } from './api/softskill';
+import SoftSkill from './pages/SoftSkill';
 
 function App() {
   const [info, setInfo] = useState()
   const [infoSkill, setInfoSkill] = useState([]);
+  const [infoSoftSkill, setInfoSoftSkill] = useState([]);
   const [infoResume, setInfoResume] = useState([]);
   const [infoProject, setInfoProject] = useState([]);
-
+  console.log(infoSoftSkill);
 
 
   // console.log(info);
@@ -53,6 +59,11 @@ function App() {
       setInfoSkill(data);
     }
     getInfoSkill();
+    const getInfoSoftSkill = async () => {
+      const { data } = await getSoftSkill();
+      setInfoSoftSkill(data);
+    }
+    getInfoSoftSkill();
     const getInfoResume = async () => {
       const { data } = await getResume();
       // console.log("Resume", data);
@@ -125,16 +136,37 @@ function App() {
     const { data } = await removeProject(id);
     setInfoProject(infoProject.filter(item => item._id != id));
   }
+
+  //handler soft skill 
+
+  const handlerAddSoftSkillApp = async (datapost) => {
+    // console.log(datapost);
+    const { data } = await postSoftSkill(datapost);
+    setInfoSoftSkill([...infoSoftSkill, data])
+    console.log(infoSoftSkill);
+  }
+
+  const handlerRemoveSoftSkillApp = async (id) => {
+    // console.log(datapost);
+    const { data } = await removeSoftSkill(id);
+    setInfoSoftSkill(infoSoftSkill.filter(item => item._id != id))
+  }
+
+  const handlerEditSoftSkillApp = async (dataEdit) => {
+    const { data } = await putSoftSkill(dataEdit);
+    setInfoSoftSkill(infoSoftSkill.map(item => item._id = data._id ? data : item))
+  }
   return (
     <div>
       <Routes>
         <Route path="/" element={<PortfolioLayout info={info} />}>
-          <Route index element={<Home info={info} skill={infoSkill} resume={infoResume} infoProject={infoProject} />} />
+          <Route index element={<Home info={info} skill={infoSkill} resume={infoResume} infoProject={infoProject} softSkill={infoSoftSkill} />} />
           <Route path="/signin" element={<Signin />} />
-          <Route path="/about" element={<About  info={info}/>} />
-          <Route path="/resume" element={<Resume  resume={infoResume}/>} />
-          <Route path="/skill" element={<Skill skill={infoSkill}/>} />
-          <Route path="/portfolio" element={<Portfolio infoProject={infoProject}/>} />
+          <Route path="/about" element={<About info={info} />} />
+          <Route path="/resume" element={<Resume resume={infoResume} />} />
+          <Route path="/skill" element={<Skill skill={infoSkill} />} />
+          <Route path="/softSkill" element={<SoftSkill softSkill={infoSoftSkill} />} />
+          <Route path="/portfolio" element={<Portfolio infoProject={infoProject} />} />
 
         </Route>
         <Route path="/admin" element={<PrivateRoute><AdminLayout info={info} /></PrivateRoute>}>
@@ -150,6 +182,10 @@ function App() {
           <Route path="skill" element={<AdminSkill skill={infoSkill} pushIdRemoveSkill={handlerREMOVESkill} />} />
           <Route path="skill/add" element={<SkillAdd handlerAddSkill={handlerADDSkill} />} />
           <Route path="skill/:id/edit" element={<SkillEdit handlerEditSkill={handlerEDITSkill} />} />
+
+          <Route path="soft-skill" element={<SoftSkillManager softSkill={infoSoftSkill} onpushIdRemoveSoftSkill={handlerRemoveSoftSkillApp} />} />
+          <Route path="soft-skill/add" element={<SoftSkillAdd handlerAddSoftSkill={handlerAddSoftSkillApp} />} />
+          <Route path="soft-skill/:id/edit" element={<SoftSkillEdit handlerEditSoftSkill={handlerEditSoftSkillApp} />} />
 
 
           <Route path="project" element={<AdminProject project={infoProject} pushIDRemoveProject={handlerRemoveProject} />} />
