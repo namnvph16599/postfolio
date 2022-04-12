@@ -1,9 +1,8 @@
 import React from 'react'
 
 const SoftSkill = ({ softSkill }) => {
-    console.log("softskll", softSkill);
     return (
-        <div>  <section id="softskill" className="softskill">
+        <div>  <section id="softskill" className="softSkill">
             <div className="container">
 
                 <div className="section-title">
