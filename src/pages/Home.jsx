@@ -15,7 +15,7 @@ const Home = ({ info, skill, resume, infoProject }) => {
       <section id="hero" className="d-flex flex-column justify-content-center align-items-center" style={{
         backgroundImage: `url(${info?.image})`
       }}>
-        <div className="hero-container" data-aos="fade-in">
+        <div className="hero-container">
           <h1>{info?.name}</h1>
           <p>I'm web developer</p>
         </div>

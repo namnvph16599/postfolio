@@ -13,7 +13,7 @@ const Portfolio = ({ infoProject }) => {
         </div>
 
         <div className="row">
-          <div className="col-lg-12" data-aos="fade-up">
+          <div className="col-lg-12" >
             {infoProject?.map((val, ind) => (<div key={ind} className="resume-item">
               <h5>Project Name : {val.name}</h5>
               <span>Domains : </span> <a href={val.domains} target="_blank">{val.domains}</a><br />

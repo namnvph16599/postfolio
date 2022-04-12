@@ -12,7 +12,7 @@ const Resume = ({resume}) => {
         </div>
 
         <div className="row">
-          <div className="col-lg-6" data-aos="fade-up">
+          <div className="col-lg-6" >
             <h3 className="resume-title">Education</h3>
             {resume?.map((val, ind) => (<div key={ind} className="resume-item">
               <h4>{val.title}</h4>
