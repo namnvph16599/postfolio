@@ -154,7 +154,7 @@ function App() {
 
   const handlerEditSoftSkillApp = async (dataEdit) => {
     const { data } = await putSoftSkill(dataEdit);
-    setInfoSoftSkill(infoSoftSkill.map(item => item._id = data._id ? data : item))
+    setInfoSoftSkill(infoSoftSkill.map(item => item._id == data._id ? data : item))
   }
   return (
     <div>
