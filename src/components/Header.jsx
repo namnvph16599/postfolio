@@ -2,6 +2,19 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Header = ({ info }) => {
+    const handlerActive = (a) => {
+        var btnContainer = document.getElementById("navbar");
+        var btns = btnContainer.getElementsByClassName("nav-link");
+
+        // Loop through the buttons and add the active class to the current/clicked button
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    }
     return (
         <div> <header id="header">
             <div className="d-flex flex-column">
@@ -19,13 +32,13 @@ const Header = ({ info }) => {
 
                 <nav id="navbar" className="nav-menu navbar">
                     <ul>
-                        <li><a href="#hero" className="nav-link scrollto active"><i className="bx bx-home"></i> <span>Home</span></a></li>
-                        <li><a href="#about" className="nav-link scrollto"><i className="bx bx-user"></i> <span>About</span></a></li>
-                        <li><a href="#skills" className="nav-link scrollto"><i className="bx bx-server"></i> <span>Skills</span></a></li>
-                        <li><a href="#softskill" className="nav-link scrollto"><i className="bx bx-server"></i> <span>Soft Skill</span></a></li>
-                        <li><a href="#resume" className="nav-link scrollto"><i className="bx bx-file-blank"></i> <span>Resume</span></a></li>
-                        <li><a href="#portfolio" className="nav-link scrollto"><i className="bx bx-book-content"></i> <span>Project</span></a></li>
-                        <li><a href="#contact" className="nav-link scrollto"><i className="bx bx-envelope"></i> <span>Contact</span></a></li>
+                        <li><a onClick={() => { handlerActive() }} href="#hero" className="nav-link scrollto active"><i className="bx bx-home"></i> <span>Home</span></a></li>
+                        <li><a onClick={() => { handlerActive() }} href="#about" className="nav-link scrollto"><i className="bx bx-user"></i> <span>About</span></a></li>
+                        <li><a onClick={() => { handlerActive() }} href="#skills" className="nav-link scrollto"><i className="bx bx-server"></i> <span>Skills</span></a></li>
+                        <li><a onClick={() => { handlerActive() }} href="#softskill" className="nav-link scrollto"><i className="bx bx-server"></i> <span>Soft Skill</span></a></li>
+                        <li><a onClick={() => { handlerActive() }} href="#resume" className="nav-link scrollto"><i className="bx bx-file-blank"></i> <span>Resume</span></a></li>
+                        <li><a onClick={() => { handlerActive() }} href="#portfolio" className="nav-link scrollto"><i className="bx bx-book-content"></i> <span>Project</span></a></li>
+                        <li><a onClick={() => { handlerActive() }} href="#contact" className="nav-link scrollto"><i className="bx bx-envelope"></i> <span>Contact</span></a></li>
                     </ul>
                 </nav>
             </div>
