@@ -24,8 +24,8 @@ const Home = ({ info, skill, resume, infoProject, softSkill }) => {
       <About info={info} />
       {/* <Fact /> */}
       <Skill skill={skill} />
-      <Resume resume={resume} />
       <SoftSkill softSkill={softSkill} />
+      <Resume resume={resume} />
       <Portfolio infoProject={infoProject} />
       {/* <Testimonials /> */}
       <Contact info={info} />

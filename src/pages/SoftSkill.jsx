@@ -11,9 +11,9 @@ const SoftSkill = ({ softSkill }) => {
                 </div>
                 <div className="row">
                     {softSkill?.map(item => (
-                        <div className="col-lg-4 col-md-6 icon-box">
+                        <div className="col-lg-4 col-md-6 icon-box" key={item._id}>
                             <div className="icon center text-center"><i className={item.icons}></i></div>
-                            <h4 className="title text-center">{item.name}</h4>
+                            <h4 className="title text-center text-#149ddd">{item.name}</h4>
                         </div>
                     ))}
                 </div>
