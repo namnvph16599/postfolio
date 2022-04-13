@@ -16,7 +16,7 @@ const Skill = ({ skill }) => {
             <div className="row">
               {skill?.map(item => (
               <div className="col-lg-6" key={item._id}>
-                <h3>{item.skillName}</h3>
+                <h5>{item.skillName}</h5>
                 <ul>
                   <li><i className="bi bi-chevron-right"></i> <strong>{item.skillProgress}</strong></li>
                 </ul>

@@ -7,9 +7,6 @@ const Footer = () => {
                 <div className="copyright">
                     &copy; Copyright <strong><span>Ngô Văn Nam</span></strong>
                 </div>
-                <div className="credits">
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
             </div>
         </footer></div>
     )
