@@ -42,7 +42,6 @@ function App() {
   const [infoSoftSkill, setInfoSoftSkill] = useState([]);
   const [infoResume, setInfoResume] = useState([]);
   const [infoProject, setInfoProject] = useState([]);
-  console.log(infoSoftSkill);
 
 
   // console.log(info);
