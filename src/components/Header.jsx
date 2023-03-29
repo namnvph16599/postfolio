@@ -2,18 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Header = ({ info }) => {
-    const handlerActive = (a) => {
-        var btnContainer = document.getElementById("navbar");
-        var btns = btnContainer.getElementsByClassName("nav-link");
-
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function () {
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
-        }
-    }
     return (
         <div> <header id="header">
             <div className="d-flex flex-column">
