@@ -14,14 +14,14 @@ const Home = ({ info, skill, resume, infoProject, softSkill }) => {
   return (
     <div >
       <section id="hero" className="d-flex flex-column justify-content-center align-items-center" style={{
-        backgroundImage: `url(${info?.image})`
+        backgroundImage: `url(https://res.cloudinary.com/vannam042/image/upload/v1680102137/z3058808865820_6bb511c3b414d15db5f34b4d536c55ce_shvb3e.jpg)`
       }}>
         <div className="hero-container">
-          <h1>{info?.name}</h1>
-          <p>I will be a Frontend developer</p>
+          <h1>Ngô Văn Nam</h1>
+          <p>I will be a Fullstack Developer</p>
         </div>
       </section>
-      <About info={info} />
+      <About />
       {/* <Fact /> */}
       <Skill skill={skill} />
       <SoftSkill softSkill={softSkill} />
