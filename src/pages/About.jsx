@@ -28,16 +28,12 @@ via high-valued online courses. Aiming to be a Senior Fullstack Developer in the
                 <ul>
                   <li><i className="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>04/02/2002</span></li>
                   <li><i className="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>0376021530</span></li>
-                  {/* <li><i className="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li> */}
-                  {/* <li><i className="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li> */}
+                  <li><i className="bi bi-chevron-right"></i> <strong>Email:</strong> <span>nvnam042@gmail.com</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Facebook:</strong> <span>https://www.facebook.com/nam.nvan02</span></li>
+
                 </ul>
               </div>
               <div className="col-lg-6">
-                <ul>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Age:</strong> <span>21</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Email:</strong> <span>nvnam042@gmail.com</span></li>
-                  {/* <li><i className="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li> */}
-                </ul>
               </div>
             </div>
             {/* <p>
