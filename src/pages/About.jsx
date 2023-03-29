@@ -1,6 +1,6 @@
 import React from 'react'
 
-const About = ({ info }) => {
+const About = () => {
   return (
     <div>        <section id="about" className="about">
       <div className="container">
@@ -8,13 +8,14 @@ const About = ({ info }) => {
         <div className="section-title">
           <h2>About</h2>
           <p style={{ "fontSize": "24px", "fontWeight": "500" }}>Career goals</p>
-          <p>{info?.careerGoals}</p>
+          <p>Become a professional Developer specialized in web development. Improve skills by accumulating more knowledge
+via high-valued online courses. Aiming to be a Senior Fullstack Developer in the next 5 years.</p>
 
         </div>
 
         <div className="row">
           <div className="col-lg-4" >
-            <img src={info?.avatar} className="img-fluid" alt="" />
+            <img src={'https://res.cloudinary.com/vannam042/image/upload/v1649580351/z3330081096623_8be91a1ad0d803e7fa8056c4cf3b81f0_v15v8o.jpg'} className="img-fluid" alt="" />
           </div>
           <div className="col-lg-8 pt-4 pt-lg-0 content" >
             <h3>Web Developer</h3>
@@ -25,17 +26,16 @@ const About = ({ info }) => {
             <div className="row">
               <div className="col-lg-6">
                 <ul>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{info?.birthday}</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{info?.phone}</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>04/02/2002</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>0376021530</span></li>
                   {/* <li><i className="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li> */}
                   {/* <li><i className="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li> */}
-                  <li><i className="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Student</span></li>
                 </ul>
               </div>
               <div className="col-lg-6">
                 <ul>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Age:</strong> <span>20</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{info?.email}</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Age:</strong> <span>21</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Email:</strong> <span>nvnam042@gmail.com</span></li>
                   {/* <li><i className="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li> */}
                 </ul>
               </div>
