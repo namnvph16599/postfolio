@@ -9,8 +9,7 @@ import Testimonials from "./Testimonials";
 import Contact from "./Contact";
 import SoftSkill from './SoftSkill';
 
-const Home = ({ info, skill, resume, infoProject, softSkill }) => {
-  // console.log(info);
+const Home = () => {
   return (
     <div >
       <section id="hero" className="d-flex flex-column justify-content-center align-items-center" style={{
@@ -28,7 +27,7 @@ const Home = ({ info, skill, resume, infoProject, softSkill }) => {
       <Resume />
       <Portfolio />
       {/* <Testimonials /> */}
-      <Contact info={info} />
+      <Contact />
       <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
     </div>
   )
