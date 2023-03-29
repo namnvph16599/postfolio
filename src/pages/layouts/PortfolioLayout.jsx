@@ -4,12 +4,12 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
 
-const PortfolioLayout = ({ info }) => {
+const PortfolioLayout = () => {
     return (
         <div>
             <nav>
                 <i className="bi bi-list mobile-nav-toggle d-xl-none"></i>
-                <Header info={info} />
+                <Header />
                 <Footer />
             </nav>
             <main style={{ marginLeft: 300 + 'px' }}>
